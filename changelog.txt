@@ -1,0 +1,4 @@
+Proyecto
+	+ postgres:
+		createdb -O postgres eneragro_test
+

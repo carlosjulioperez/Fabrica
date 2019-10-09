@@ -1,0 +1,15 @@
+*.swp
+.DS_Store
+.DS_Store?
+*~
+
+web/WEB-INF/classes/
+.metadata/
+
+# swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+
+act.sh
