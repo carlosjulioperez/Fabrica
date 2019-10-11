@@ -6,6 +6,9 @@
 	<property name="ox3" value="true" />
 	<property name="openxava.base.dir" value=".."/> <!-- Change if you want OpenXava and Addons in another folder -->
 	<property file="../openxava.properties"/>
+        
+    <!-- 2019-10-10 Agregado por carper -->
+	<property name="webinf.dir"    value="web/WEB-INF" />
 	
 	<!-- 
 	Compile all .java and .groovy 
@@ -59,13 +62,13 @@
 	<target name="updateSchema">
 		<ant antfile="${openxava.base.dir}/OpenXava/build.xml" target="updateSchemaJPA">			
 			<property name="persistence.unit" value="junit"/>
-			<property name="schema.path" value="../OpenXava/lib/hsqldb.jar"/>
+			<!-- <property name="schema.path" value="../OpenXava/lib/hsqldb.jar"/> -->
+            <property name="schema.path" value="${webinf.dir}/lib/postgresql-42.2.8.jar"/>
 		</ant>
 	</target>	
 	
 	<!-- 2019-10-08 Agregado por carper -->
 
-	<property name="webinf.dir"    value="web/WEB-INF" />
 	<property name="class.dir"     value="${webinf.dir}/classes" />
 	<property name="represult.dir" value="tests" />
 

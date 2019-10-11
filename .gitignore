@@ -4,6 +4,7 @@
 *~
 
 web/WEB-INF/classes/
+temp/
 .metadata/
 
 # swap

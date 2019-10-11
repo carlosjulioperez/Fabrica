@@ -1,4 +1,27 @@
 Proyecto
-	+ postgres:
+	* postgres:
 		createdb -O postgres eneragro_test
+
+		+ Listado de todos los esquemas:
+		https://tableplus.com/blog/2018/04/postgresql-how-to-list-all-schemas.html
+
+		SELECT schema_name FROM information_schema.schemata;
+		SELECT nspname FROM pg_catalog.pg_namespace;
+
+		+ Cambiar de esquema:
+		https://stackoverflow.com/questions/34098326/how-to-select-a-schema-in-postgres-when-using-psql
+
+		SHOW search_path;
+		SET search_path TO fabrica;
+
+	* context.xml:
+		+ Develop: web/META-INF/context.xml
+		+ Produccion: conf/context.xml 
+
+		<Resource name="jdbc/FabricaDS" auth="Container"
+			type="javax.sql.DataSource"
+			maxTotal="100" maxIdle="20" maxWaitMillis="10000"
+			username="postgres" password=""
+			driverClassName="org.postgresql.Driver"
+			url="jdbc:postgresql://localhost:5432/eneragro_test"/>
 

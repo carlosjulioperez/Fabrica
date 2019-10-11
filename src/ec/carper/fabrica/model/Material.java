@@ -8,9 +8,9 @@ import org.openxava.annotations.*;
 import org.openxava.model.*;
 
 @Entity
-public class Unidad extends Identifiable {
+public class Material extends Identifiable {
 
-    @Column(length=10) @Required @Getter @Setter
+    @Column(length=40) @Required @Getter @Setter
     private String descripcion;
 
 }
