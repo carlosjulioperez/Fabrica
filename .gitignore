@@ -3,6 +3,8 @@
 .DS_Store?
 *~
 
+data/
+tests/
 temp/
 web/WEB-INF/classes/
 .metadata/
