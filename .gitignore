@@ -3,8 +3,8 @@
 .DS_Store?
 *~
 
-web/WEB-INF/classes/
 temp/
+web/WEB-INF/classes/
 .metadata/
 
 # swap
