@@ -1,4 +1,6 @@
 Proyecto
+	https://sourceforge.net/p/openxava/discussion/437013/thread/83b3114767/?limit=25
+
 	* postgres:
 		createdb -O postgres eneragro_test
 
