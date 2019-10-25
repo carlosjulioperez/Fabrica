@@ -14,7 +14,7 @@ import org.openxava.calculators.*;
 import org.openxava.model.*;
 
 @Entity
-@View(members="fecha,semana")
+@View(members="fecha,numeroSemana")
 //Reporte de fábrica
 public class Blc extends Identifiable{
 
@@ -22,8 +22,8 @@ public class Blc extends Identifiable{
     @Required @Getter @Setter
     private LocalDate fecha;
 
-    // @Depends("fecha") @ReadOnly @Setter
-    // private int semana;
+    @Getter @Setter
+    private int semana;
 
     /**
      * https://sourceforge.net/p/openxava/discussion/437013/thread/83b3114767/?limit=25
@@ -31,7 +31,7 @@ public class Blc extends Identifiable{
      *
      */
     @Depends("fecha") 
-    public int getSemana(){
+    public int getNumeroSemana(){
         LocalDate localDate = (LocalDate) fecha;
         WeekFields weekFields = WeekFields.of(Locale.getDefault());           
         int weekNumber = localDate.get(weekFields.weekOfWeekBasedYear());
@@ -39,5 +39,41 @@ public class Blc extends Identifiable{
         return weekNumber;
     }
 
+    public void recalculateSemana(){
+        setSemana(getNumeroSemana());
+    }
+
+    @PrePersist //Al grabar la primera vez
+    private void onPersist(){
+        recalculateSemana();
+    }
+
+    @PreUpdate //Cada vez que se modifica
+    private void onUpdate(){
+        recalculateSemana();
+    }
+
+    @PreRemove //Al borrar el registro
+    private void onRemove(){
+        if (isRemoving()) return; //Añadimos esta línea para evitar excepciones
+        recalculateSemana();
+    }
+
+    @Transient //No se almacena en la tabla en la base de datos
+    private boolean removing = false; //Indica si JPA está borrando el documento ahora
+
+    boolean isRemoving(){ //Acceso paquete, no es accesible desde fuera
+        return removing;
+    }
+
+    @PreRemove //Cuando el registro va a ser borrado marcamos removing como true
+    private void markRemoving(){ 
+        this.removing = true;
+    }
+
+    @PostRemove //Cuando el registro ha sido borrado marcamos removing como false
+    private void unmarkRemoving(){
+        this.removing = false;
+    }
 }
 

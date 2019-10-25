@@ -20,9 +20,13 @@ Proyecto
 		ALTER SEQUENCE seq RESTART WITH 1;
 		UPDATE t SET idcolumn=nextval('seq');
 
-	* context.xml:
-		+ Develop: web/META-INF/context.xml
-		+ Produccion: conf/context.xml 
+	* Mode:
+		1. persistence/META-INF/persistence.xml:
+			hibernate.dialect
+		2. context.xml:
+			+ Develop: web/META-INF/context.xml
+			+ Produccion: conf/context.xml 
+		3. build.xml, task:
 
 		<Resource name="jdbc/FabricaDS" auth="Container"
 			type="javax.sql.DataSource"

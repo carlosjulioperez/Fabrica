@@ -62,8 +62,8 @@
 	<target name="updateSchema">
 		<ant antfile="${openxava.base.dir}/OpenXava/build.xml" target="updateSchemaJPA">			
 			<property name="persistence.unit" value="junit"/>
-			<!-- <property name="schema.path" value="../OpenXava/lib/hsqldb.jar"/> -->
-            <property name="schema.path" value="${webinf.dir}/lib/postgresql-42.2.8.jar"/>
+			<property name="schema.path" value="../OpenXava/lib/hsqldb.jar"/>
+            <!-- <property name="schema.path" value="${webinf.dir}/lib/postgresql-42.2.8.jar"/> -->
 		</ant>
 	</target>	
 	
