@@ -53,6 +53,7 @@ public class Blc extends Identifiable{
         recalculateSemana();
     }
 
+    /*
     @PreRemove //Al borrar el registro
     private void onRemove(){
         if (isRemoving()) return; //Añadimos esta línea para evitar excepciones
@@ -75,5 +76,5 @@ public class Blc extends Identifiable{
     private void unmarkRemoving(){
         this.removing = false;
     }
+    */
 }
-
