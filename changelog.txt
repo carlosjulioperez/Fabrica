@@ -1,4 +1,8 @@
 Proyecto
+	
+	https://trello.com/b/lZwKk47m/fabrica
+	Locale: iso-8859-1
+
 	https://sourceforge.net/p/openxava/discussion/437013/thread/83b3114767/?limit=25
 
 	* postgres:

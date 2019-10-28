@@ -1,5 +1,6 @@
 package ec.carper.fabrica.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.temporal.WeekFields;
 
@@ -14,7 +15,14 @@ import org.openxava.calculators.*;
 import org.openxava.model.*;
 
 @Entity
-@View(members="fecha,numeroSemana")
+@View(members=
+    "fecha,numeroSemana;" +
+    "datosDia {" + 
+    "   canaDia;" +
+    "   aguaMaceracion;" +
+    "   jugoDiluido;" +
+    "}" 
+)
 //Reporte de fábrica
 public class Blc extends Identifiable{
 
@@ -32,17 +40,41 @@ public class Blc extends Identifiable{
      */
     @Depends("fecha") 
     public int getNumeroSemana(){
+
+        // Locale currentLocale = Locale.getDefault();
+        // System.out.println(currentLocale.getLanguage());
+        // System.out.println(currentLocale.getCountry());
+
         LocalDate localDate = (LocalDate) fecha;
         WeekFields weekFields = WeekFields.of(Locale.getDefault());           
         int weekNumber = localDate.get(weekFields.weekOfWeekBasedYear());
-        System.out.println(weekNumber);
+        //System.out.println(weekNumber);
         return weekNumber;
     }
 
+    @Getter @Setter
+    private BigDecimal canaDia;
+    
+    @Getter @Setter
+    private BigDecimal aguaMaceracion;
+    
+    @Getter @Setter
+    private BigDecimal jugoDiluido;
+
+
+    
+    //**********************************************************************
+    // Cálculos y formúlas
+    //**********************************************************************
+    
     public void recalculateSemana(){
         setSemana(getNumeroSemana());
     }
 
+    //**********************************************************************
+    // Sincronización de propiedades calculadas y persistentes
+    //**********************************************************************
+    
     @PrePersist //Al grabar la primera vez
     private void onPersist(){
         recalculateSemana();
