@@ -17,16 +17,16 @@ import org.openxava.model.*;
 @Entity
 @View(members=
     "fecha,numeroSemana;" +
-    "datosDia {" + 
+    "s1{" + 
     "   canaDia;" +
     "   aguaMaceracion;" +
     "   jugoDiluido;" +
     "}" +
     "tiempos {" + 
     "}" +
-    "variablesPrimarias {" + 
-    "   jugoDiluido {" +
-            "pJugoDiluido,brixJDil;" +
+    "s3{" + 
+    "   p4{" +
+            "s3.p4.pJugoDiluido,s3.p4.brixJDil;" +
     "   }" +
     "}" 
 )
