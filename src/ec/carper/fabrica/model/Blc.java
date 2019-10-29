@@ -21,6 +21,13 @@ import org.openxava.model.*;
     "   canaDia;" +
     "   aguaMaceracion;" +
     "   jugoDiluido;" +
+    "}" +
+    "tiempos {" + 
+    "}" +
+    "variablesPrimarias {" + 
+    "   jugoDiluido {" +
+            "pJugoDiluido,brixJDil;" +
+    "   }" +
     "}" 
 )
 //Reporte de fábrica
@@ -52,6 +59,7 @@ public class Blc extends Identifiable{
         return weekNumber;
     }
 
+    //Datos dia
     @Getter @Setter
     private BigDecimal canaDia;
     
@@ -61,6 +69,11 @@ public class Blc extends Identifiable{
     @Getter @Setter
     private BigDecimal jugoDiluido;
 
+    @Getter @Setter
+    private BigDecimal pJugoDiluido;
+
+    @Getter @Setter
+    private BigDecimal brixJDil;
 
     
     //**********************************************************************
