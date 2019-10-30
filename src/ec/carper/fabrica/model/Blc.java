@@ -22,12 +22,12 @@ import org.openxava.model.*;
     "   aguaMaceracion;" +
     "   jugoDiluido;" +
     "}" +
-    "tiempos {" + 
+    "tiempos { " + 
     "}" +
-    "s3{" + 
-    "   p4{" +
-            "s3.p4.pJugoDiluido,s3.p4.brixJDil;" +
-    "   }" +
+            "pJugoDiluido;brixJDil;" +
+    // "s3{ " + 
+    // "   s34[ " +
+    // "   ];" +
     "}" 
 )
 //Reporte de fábrica
@@ -68,11 +68,11 @@ public class Blc extends Identifiable{
     
     @Getter @Setter
     private BigDecimal jugoDiluido;
-
+    
     @Getter @Setter
     private BigDecimal pJugoDiluido;
 
-    @Getter @Setter
+    @Getter @
     private BigDecimal brixJDil;
 
     
