@@ -17,17 +17,17 @@ import org.openxava.model.*;
 @Entity
 @View(members=
     "fecha,numeroSemana;" +
-    "s1{" + 
+    "tabDatosDia{" + 
     "   canaDia;" +
     "   aguaMaceracion;" +
     "   jugoDiluido;" +
     "}" +
-    "tiempos { " + 
+    "tabTiempos { " + 
     "}" +
-            "pJugoDiluido;brixJDil;" +
-    // "s3{ " + 
-    // "   s34[ " +
-    // "   ];" +
+    "tabVariablesPrimarias{ " + 
+    "   tabJugoDiluido{ " +
+            "rhoJugoDiluido,brixJDil;" +
+    "   };" +
     "}" 
 )
 //Reporte de fábrica
@@ -70,9 +70,9 @@ public class Blc extends Identifiable{
     private BigDecimal jugoDiluido;
     
     @Getter @Setter
-    private BigDecimal pJugoDiluido;
+    private BigDecimal rhoJugoDiluido;
 
-    @Getter @
+    @Getter @Setter
     private BigDecimal brixJDil;
 
     
